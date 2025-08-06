@@ -1,0 +1,56 @@
+<section class="custom-products-sec-2">
+  <div class="page-width">
+    <div class="container-620">
+        <div class="sec2-content">
+            <h2>{{ section.settings.sub_heading }}</h2>
+            <h3>{{ section.settings.main_heading }}</h3>
+            <p>{{ section.settings.content }}</p>
+            <div class="sec2-can-img">
+                  <img src="{{ section.settings.image | image_url }}" alt="">
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Section Two",
+    "settings": [
+      {
+      "type": "text",
+      "label": "Sub Heading",
+      "id": "sub_heading",
+      "default": "Our Grapefruits"
+    },
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "This is the place..."
+    },
+    {
+      "type": "textarea",
+      "label": "Content",
+      "id": "content",
+      "default": "we'd normally write our origin story. Tell you all about how our founder Bill started Spindrift by squeezing fruit into sparkling water for his family. But instead, we decided to use this space to get real with you. Really real. Real like sparkling water and real squeezed fruit from real family farms real. So real you can really taste it. Better yet, you can really see it. It's the real deal. Also real: we think Spindrift tastes really great. You'll just have to try it for yourself. For real."
+    },
+    {
+      "type":"image_picker",
+      "label":"Image",
+      "id":"image"
+    }
+    ],
+        "presets": [
+    {
+      "name": "Section Two"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

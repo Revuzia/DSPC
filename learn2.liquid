@@ -1,0 +1,131 @@
+ <div class="sec-learn2">
+      <div class="page-width">
+        <div class="row-learn">
+          <div class="learn-heading"> <h1 class="fa-73">{{ section.settings.heading1 }}</h1></div>
+          {% for block in section.blocks %}
+            {% if block.type == 'card_detail' %}
+          <div class="learn-cards">
+            <div class="card-img">
+              <img src="{{ block.settings.card-detail-image | img_url: '67x' }}" alt="">
+            </div>
+            <h5 class="fa-24">{{ block.settings.card_heading }}</h5>
+          </div>
+          {% endif %}
+          {% endfor %}
+<!--           <div class="learn-cards">
+            <div class="card-img">
+              <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_13.png?v=1689618211" alt="">
+            </div>
+            <h5 class="fa-24">Zero Calories</h5>
+          </div>
+          <div class="learn-cards">
+            <div class="card-img">
+              <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_14.png?v=1689618211" alt="">
+            </div>
+            <h5 class="fa-24">No Sugar</h5>
+          </div>
+          <div class="learn-cards">
+            <div class="card-img">
+              <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Layer_1_6.png?v=1689618211" alt="">
+            </div>
+            <h5 class="fa-24">All Natural</h5>
+          </div> -->
+        </div>
+        <div class="row-learn2">
+          <div class="col-learn1">
+            <ul class="learn-ser">
+              {% for block in section.blocks %}
+                {% if block.type == 'details' %}
+              <li class="details-text">
+                {{ block.settings.text-detail }}
+              </li>
+              {% endif %}
+              {% endfor %}
+<!--               <li class="details-text">
+                Stevia leaf extract
+              </li>
+              <li class="details-text">
+                Magnesium
+              </li>
+              <li class="details-text">
+                Potassium
+              </li>
+              <li class="details-text">
+                Citric acid
+              </li>
+              <li class="details-text">
+               Natural flavors
+              </li> -->
+            </ul>
+          </div>
+          <div class="col-learn">
+            <div class="details-img">
+              <img src="{{ section.settings.details-image | image_url }}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+{% schema %}
+{
+  "name": "learn2",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading1",
+      "default": "INGREDIENTS"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "details-image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card_detail",
+      "name": "card detail",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "card-detail-image"
+        },
+        {
+          "type": "text",
+          "label": "Card Heading",
+          "id": "card_heading"
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "name": "Details",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "label": "text",
+          "id": "text-detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "learn2"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

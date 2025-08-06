@@ -1,0 +1,42 @@
+<div class="map-sec">
+    <div class="map-text"><h2 class="fa-90">{{section.settings.main_heading}}</h2></div>
+
+<div class="site-map">
+    {{section.settings.html-sec}}
+    </div>
+
+</div>
+
+
+{% schema %}
+  {
+  "name": "Map",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "Find near you"
+    },
+    {
+    "type":"html",
+    "id":"html-sec",
+    "label":"Map Api"
+    
+    }
+    
+  ],
+  "presets": [
+    {
+      "name": "Map"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

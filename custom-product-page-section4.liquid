@@ -1,0 +1,29 @@
+<section>
+    <div class="single-img-container">
+        <img src="{{ section.settings.image | image_url }}" alt="">
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Section Four",
+    "settings": [
+      {
+        "type":"image_picker",
+        "label":"Image",
+        "id":"image"
+      }
+    ],
+        "presets": [
+    {
+      "name": "Section Four"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

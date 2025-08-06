@@ -1,0 +1,116 @@
+
+<div class="learn-sec2">
+    <div class="page-width">
+        <div class="row">
+            <div class="col-md-12">
+               <h2 class="fa-70">
+                {{ section.settings.main_heading }}
+               </h2>
+               <p class="fa-24">{{ section.settings.paragraph }}</p>
+            </div>
+        </div>
+        <div class="row pt-10">
+          {% for block in section.blocks %}
+            <div class="col-md-4">
+                <div class="customer">
+                <div class="customer-img">
+                    <img src="{{ block.settings.founder-image | img_url:'248x' }}" alt="">
+                </div>
+                <h3 class="fa-19">
+                    {{ block.settings.founder-heading }}
+                </h3>
+                <h6 class="fa-17">{{ block.settings.sm-heading }}</h6>
+                <p class="fa-17">{{ block.settings.paragraph-1 }}</p>
+            </div>
+            </div>
+          {% endfor %}
+<!--             <div class="col-md-4">
+                <div class="customer">
+                <div class="customer-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Mask_group_9.png?v=1686692882" alt="">
+                </div>
+                <h3 class="fa-19">
+                    Jake Berman
+                </h3>
+                <h6 class="fa-17">CMO</h6>
+                <p class="fa-17">Blake leads the Spade executive officer tem with industry experience in project management and finance, as well as, Lean Six Sigma for organizational excellence.</p>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="customer">
+                <div class="customer-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Mask_group_10.png?v=1686692882" alt="">
+                </div>
+                <h3 class="fa-19">
+                    Tim Bollinger
+                </h3>
+                <h6 class="fa-17">COO</h6>
+                <p class="fa-17">Blake leads the Spade executive officer tem with industry experience in project management and finance, as well as, Lean Six Sigma for organizational excellence.</p>
+            </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Our Founder",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "OUR FOUNDER"
+    },
+    {
+      "type": "textarea",
+      "label": "Paragraph",
+      "id": "paragraph"
+    }
+    
+  ],
+  "blocks": [
+    {
+      "type": "founder",
+      "name": "Our Founder",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": " Image",
+          "id": "founder-image"
+        },
+        {
+          "type": "text",
+          "label": "Heading",
+          "id": "founder-heading"
+        },
+        {
+          "type": "text",
+          "label": "Small Heading",
+          "id": "sm-heading"
+        },
+        {
+          "type": "textarea",
+          "label": "paragraph",
+          "id": "paragraph-1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "founder"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

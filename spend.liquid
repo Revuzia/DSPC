@@ -1,0 +1,143 @@
+<section class="spend-section">
+    <div class="page-width">
+        <div class="row">
+            <div class="col-lg-6">
+              
+                <h5>{{ section.settings.sub-heading }}</h5>
+                <h2>{{ section.settings.spend-heading }}</h2>
+                <p>{{ section.settings.spend-parahgraph }}</p>
+                <div class="can-img">
+                  {% if section.settings.can-image1 != blank %}
+                    <div class="can-img-content">
+                        <img src="{{ section.settings.can-image1 | image_url }}" alt="">
+                        <span>{{ section.settings.image-text1 }}</span>
+                    </div>
+                    {% endif %}
+                    {% if section.settings.can-image2 != blank %}
+                    <div class="can-img-content">
+                        <img src="{{ section.settings.can-image2 | image_url }}" alt="">
+                        <span>{{ section.settings.image-text2 }}</span>
+                    </div>
+                      {% endif %}
+                      {% if section.settings.can-image3 != blank %}
+                    <div class="can-img-content">
+                        <img src="{{ section.settings.can-image3 | image_url }}" alt="">
+                        <span>{{ section.settings.image-text3 }}</span>
+                    </div>
+                        {% endif %}
+                        {% if section.settings.can-image4 != blank %}
+                    <div class="can-img-content">
+                        <img src="{{ section.settings.can-image4 | image_url }}" alt="">
+                        <span>{{ section.settings.image-text4 }}</span>
+                    </div>
+                          {% endif %}
+                </div>
+                <div class="banner__buttons"><a href="{{ section.settings.spend-btn-link }}" class="button button--primary">{{ section.settings.spend-btn-text }}</a></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="spend-content-img">
+                <a href="https://drinkspade.com/products/sampler-12pk">                  
+                    <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Untitleddesign-2.png?v=1690844335" alt="">
+                </a>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Spend",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Spend Section"
+      },
+      {
+        "type":"text",
+        "id": "spend-heading",
+        "label": "Main Heading",
+        "default": "Spend the Summer with us"
+      },
+      {
+        "type":"text",
+        "id": "sub-heading",
+        "label": "Main Heading",
+        "default": "Try Our 12 Pk Sampler"
+      },
+      {
+        "type":"textarea",
+        "id": "spend-parahgraph",
+        "label": "Parahgraph",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed lpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        "type":"image_picker",
+        "id": "can-image1",
+        "label": "small-img"
+      },
+      {
+        "type":"textarea",
+        "id": "image-text1",
+        "label": "Image Text",
+        "default": "0 Cal"
+      },
+      {
+        "type":"image_picker",
+        "id": "can-image2",
+        "label": "small-img"
+      },
+      {
+        "type":"textarea",
+        "id": "image-text2",
+        "label": "Image Text",
+        "default": "Gluten Free"
+      },
+      {
+        "type":"image_picker",
+        "id": "can-image3",
+        "label": "small-img"
+      },
+      {
+        "type":"textarea",
+        "id": "image-text3",
+        "label": "Image Text",
+        "default": "All Natural"
+      },
+      {
+        "type":"image_picker",
+        "id": "can-image4",
+        "label": "small-img"
+      },
+      {
+        "type":"textarea",
+        "id": "image-text4",
+        "label": "Image Text",
+        "default": "0 Sugar"
+      },
+      {
+        "type": "text",
+        "id": "spend-btn-text",
+        "label": "Button Text",
+        "default": "Shop The Sampler Pack"
+      },
+      {
+        "type": "url",
+        "id": "spend-btn-link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Spend"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

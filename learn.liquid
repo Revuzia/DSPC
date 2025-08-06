@@ -1,0 +1,109 @@
+<div class="learn-sec1">
+    <div class="page-width">
+        <div class="row">
+            <div class="col-md-12">
+               <h2 class="fa-70">
+                {{ section.settings.main_heading }}
+               </h2>
+               <p class="fa-28">{{ section.settings.paragraph-1 }}</p>
+            </div>
+        </div>
+        <div class="row pt-10">
+            <div class="col-md-4">
+                <div class="can-image">
+                    <img src="{{ section.settings.can_image | image_url }} alt="">
+                </div>
+            </div>
+            <div class="col-md-4">
+              {% for block in section.blocks %}
+                <div class="img-text">
+                    <div class="ser-img">
+                        <img src="{{ block.settings.ser-image | img_url: '200x' }}" alt="">
+                    </div>
+                    <h5 class="fa-30">{{ block.settings.ser-heading }}</h5>
+                </div>
+              {% endfor %}
+             <div class="learn-btn">
+                    <a href="{{ section.settings.btn_url }}">{{ section.settings.btn_text }}</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="facts-img">
+                    <img src="{{ section.settings.facts_image | image_url }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "inner page",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "INGREDIENTS"
+    },
+    {
+      "type": "textarea",
+      "label": "Paragraph",
+      "id": "paragraph-1"
+    },
+    {
+      "type": "image_picker",
+      "label": "Left image",
+      "id": "can_image"
+    },
+    {
+      "type": "image_picker",
+      "label": "Right image",
+      "id": "facts_image"
+    },
+    {
+          "type": "text",
+          "label": "Button Text",
+          "id": "btn_text"
+        },
+        {
+          "type": "url",
+          "label": "Button Url",
+          "id": "btn_url"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "ingredients",
+      "name": "INGREDIENTS",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": " Image",
+          "id": "ser-image"
+        },
+        {
+          "type": "text",
+          "label": "Heading",
+          "id": "ser-heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "learn"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

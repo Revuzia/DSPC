@@ -1,0 +1,125 @@
+<div class="section-Guilt-Free">
+         <div class="left-img">
+        <img src="{{ section.settings.image-left | image_url }}" alt="">
+    </div>
+    <div class="right-img">
+        <img src="{{ section.settings.image-right | image_url }}" alt="">
+    </div>
+        <div class="page-width Guilt-width">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ section.settings.main_heading }}</h2>
+                </div>
+
+              
+                <div class="dp-flex">
+                  {% for block in section.blocks %}
+                    <div class="col-md-3">
+                      {% if block.settings.image1 %}
+                        <div class="card-icon">
+                            <div class="card-img">
+                                <img src="{{ block.settings.image1 | image_url }}" alt="">
+                            </div>
+                            <h4>{{ block.settings.text1 }}</h4>
+                        </div>
+                        {% endif %}
+                    </div>
+<!--                     <div class="col-md-3">
+                        <div class="card-icon">
+                            <div class="card-img">
+                                <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_4.png?v=1684359165" alt="">
+                            </div>
+                            <h4>Zero Calories</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-icon">
+                            <div class="card-img">
+                                <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_6.png?v=1684359211" alt="">
+                            </div>
+                            <h4>No Sugar</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-icon">
+                            <div class="card-img">
+                                <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Layer_1_3.png?v=1684359211" alt="">
+                            </div>
+                            <h4>All Natural</h4>
+                        </div>
+                    </div> -->
+                  {% endfor %}
+                </div> 
+                <div class="banner__buttons"><a href="{{ section.settings.spend-btn-link }}" class="button button--primary">{{ section.settings.spend-btn-text }}</a></div>
+            </div>
+        </div>
+    </div>
+
+
+{% schema %}
+{
+  "name": "Guilt",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "Guilt Free"
+    },
+    {
+        "type": "text",
+        "id": "spend-btn-text",
+        "label": "Button Text",
+        "default": "Shop The Sampler Pack"
+      },
+      {
+        "type": "url",
+        "id": "spend-btn-link",
+        "label": "Button Link"
+      },
+      {
+        "type": "image_picker",
+          "label": "Image Left",
+          "id": "image-left"
+      },
+      {
+        "type": "image_picker",
+          "label": "Image Right",
+          "id": "image-right"
+      }
+    
+  ],
+  "blocks": [
+    {
+      "type": "guilt_items",
+      "name": "Guilt items",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image1"
+        },
+        {
+          "type": "text",
+          "label": "Text",
+          "id": "text1"
+        }
+      ]
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Guilt"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,199 @@
+<div class="main-faq">
+  <div class="page-width tabs">
+    <div class="faq-tab-row">
+      <ul id="tabs-nav">
+        <li><a href="#tab1">{{ section.settings.tab1 }}</a></li>
+        <li><a href="#tab2">{{ section.settings.tab2 }}</a></li>
+        <li><a href="#tab3">{{ section.settings.tab3 }}</a></li>
+      </ul> 
+    </div>
+    <div class="faq-tab-row2">
+      <div id="tabs-content">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+             {%- when 'product' -%}
+        <div class="tab-content-inner tab1">
+         
+            
+             
+          <div class="accordion">
+                <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                    {% render 'icon-accordion', icon: block.settings.icon %}
+                    <h3 class="accordion__title h4">
+                      {{ block.settings.heading-p}}
+                    </h3>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte" id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}" role="region" aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
+                    {{ block.settings.ans-p }}
+                  </div>
+                </details>
+              </div>
+          
+        </div>
+             {%- when 'order' -%}
+        <div class="tab-content-inner tab2">
+         
+          <div class="accordion">
+                <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                    {% render 'icon-accordion', icon: block.settings.icon %}
+                    <h3 class="accordion__title h4">
+                      {{ block.settings.heading-o}}
+                    </h3>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte" id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}" role="region" aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
+                    {{ block.settings.ans-o }}
+                  </div>
+                </details>
+              </div>
+        </div>
+            {%- when 'shiping' -%}
+        <div class="tab-content-inner tab3">
+            
+          <div class="accordion">
+                <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                    {% render 'icon-accordion', icon: block.settings.icon %}
+                    <h3 class="accordion__title h4">
+                      {{ block.settings.heading-s}}
+                    </h3>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte" id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}" role="region" aria-labelledby="Summary-{{ block.id }}-{{ section.id }}">
+                    {{ block.settings.ans-s }}
+                  </div>
+                </details>
+              </div>
+        </div>
+            {% endcase %}
+        {% endfor %}
+      </div> <!-- END tabs-content -->
+      <div class="tabs-img">
+        <img src="{{ section.settings.faq-img | img_url: '800x' }}">
+      </div>
+    </div>
+  </div> <!-- END tabs -->
+</div>
+ 
+
+
+
+{% schema %}
+  {
+    "name": "FAQ Tabs",
+    "settings": [
+      {
+        "type":"text",
+        "id":"tab1",
+        "label":"Tab 1",
+        "default":"Product"
+      },
+      {
+        "type":"text",
+        "id":"tab2",
+        "label":"Tab 2",
+        "default":"Orders"
+      },
+      {
+        "type":"text",
+        "id":"tab3",
+        "label":"Tab 2",
+        "default":"Shipping"
+      },
+      {
+        "type":"image_picker",
+        "id":"faq-img",
+        "label":"Image"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading-p",
+          "default": "Question",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "ans-p",
+          "default": "<p>Answer</p>",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "order",
+      "name": "Order",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading-o",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "ans-o",
+          "default": "<p>Answer</p>",
+          "label": "text"
+        }
+      ]
+    },
+    {
+      "type": "shiping",
+      "name": "Shipping",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading-s",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "ans-s",
+          "default": "<p>Answer</p>",
+          "label": "text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq Tabs"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  
+{% endstylesheet %}
+
+{% javascript %}
+  $('.tab1').wrapAll('<div id="tab1" class="tab-content"></div>');
+  $('.tab2').wrapAll('<div id="tab2" class="tab-content"></div>');
+  $('.tab3').wrapAll('<div id="tab3" class="tab-content"></div>');
+  // Show the first tab and hide the rest
+$('#tabs-nav li:first-child').addClass('active');
+$('.tab-content').hide();
+$('.tab-content:first').show();
+
+// Click function
+$('#tabs-nav li').click(function(){
+  $('#tabs-nav li').removeClass('active');
+  $(this).addClass('active');
+  $('.tab-content').hide();
+  
+  var activeTab = $(this).find('a').attr('href');
+  $(activeTab).fadeIn();
+  return false;
+});
+{% endjavascript %}

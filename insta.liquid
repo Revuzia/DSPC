@@ -1,0 +1,60 @@
+<section class="insta-section">
+    <div class="page-width">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="logoo" src="{{ section.settings.image1 | img_url: '120x' }}">
+                <h2>{{ section.settings.spend-heading }}</h2>
+                <p>{{ section.settings.spend-parahgraph }}</p>
+                
+            </div>
+            
+        </div>
+    </div>
+<!--     <div class="col-lg-12 insta-img">
+      
+        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/SPADE_STUDIO_6.11.23-37.jpg?v=1689382694" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/SPADE_STUDIO_6.11.23-20.jpg?v=1689382692" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/SPADE_LA_6.16.23-62.jpg?v=1689382692" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/SPADE_LA_6.16.23-92.jpg?v=1689382692" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/SPADE_LA_6.16.23-9.jpg?v=1689382692" alt="">
+    </div> -->
+  
+</section>
+{% schema %}
+  {
+    "name": "Instagram",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Instagram Section"
+      },
+      {
+        "type":"image_picker",
+        "id": "image1",
+        "label": "Logo"
+      },
+      {
+        "type":"text",
+        "id": "spend-heading",
+        "label": "Main Heading",
+        "default": "Spend the Summer with us"
+      },
+      {
+        "type":"richtext",
+        "id": "spend-parahgraph",
+        "label": "Parahgraph"
+      }
+    ],
+    "presets": [
+    {
+      "name": "Instagram"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

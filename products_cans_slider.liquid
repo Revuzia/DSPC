@@ -1,0 +1,104 @@
+<section class="insta-slider-section cans-section-area people-think-section">
+<div class="page-width">
+    <div class="peopler-repeat row">
+      
+      
+        {% for block in section.blocks %}
+          {% case block.type %}
+         {% when  'people-video' %}
+          {% if block.type == 'people-video' %}
+            <div class="col-lg-2 testi-video">
+                <div class="people-video1"><video src="{{ block.settings.video_testimonials }}" controls></video></div>
+            </div>
+          {% endif %}
+             {% when  'text' %}
+            {% if block.type == 'text' %}
+            <div class="col-lg-2 testi-text-inner">
+              <div class="people-rating">
+                <a href="{{ block.settings.link }}">
+                  <img src="{{ block.settings.testi-rating | img_url: '800x' }}">
+                </a>                
+              </div>
+              <div class="people-video"><p>{{ block.settings.testi-text }}</p></div>
+              <div class="testi-author">
+                <div class="testi-author-name">{{block.settings.testi-author}}</div>
+                {% if  block.settings.testi-buyers  %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+           {%- endcase -%}
+        {% endfor %}
+    </div>
+</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Cans Slider",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Cans Slider Section"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "people-video",
+      "name": "Add Video Testimonials",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "url",
+          "label": "Video Testimonial",
+          "id": "video_testimonials"
+        }
+      ]
+    },
+      {
+      "type": "text",
+      "name": "Add Testimonials",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Ratings",
+          "id": "testi-rating"
+        },
+        {
+          "type": "richtext",
+          "label": "Testimonial",
+          "id": "testi-text"
+        },
+        {
+          "type": "text",
+          "label": "Testimonial Author",
+          "id": "testi-author"
+        },
+        {
+          "type": "url",
+          "label": "Url",
+          "id": "link"
+        },
+        {
+          "type": "checkbox",
+          "label": "Verify Buyer",
+          "id": "testi-buyers",
+          "default":true
+        }
+      ]
+    }
+  ],
+        "presets": [
+    {
+      "name": "Cans Slider"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

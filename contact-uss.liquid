@@ -1,0 +1,114 @@
+<div class="contactuss-1 contactuss">
+        <div class="page-width">
+            <div class="contactuss-row">
+                <div class="col-md-12">
+                    <h5 class="fa-25">{{ section.settings.small-heading }}</h5>
+                   <h2 class="fa-120">
+                    {{ section.settings.text-heading }}
+                   </h2>
+                   <p class="fa-25">{{ section.settings.text-area }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="contactuss">
+    <div class="page-width">
+        <div class="contactuss-row2 pt-10">
+           {% for block in section.blocks %}
+            <div class="col-md-4">
+             <div class="contact-img-button">
+                <div class="contact-img">
+                    <img src="{{ block.settings.contact-image | img_url:'268x346' }}" alt="">
+                </div>
+                <div class="contact-btn">
+                    <a href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+<!--                 <div class="col-md-4">
+                    <div class="contact-img-button">
+                    <div class="contact-img">
+                        <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_54.png?v=1686771927" alt="">
+                    </div>
+                    <div class="contact-btn">
+                        <a href="#">Customer Service</a>
+                    </div>
+                </div>
+                </div>
+                    <div class="col-md-4">
+                        <div class="contact-img-button">
+                        <div class="contact-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0717/8308/8420/files/Group_54.png?v=1686771927" alt="">
+                        </div>
+                        <div class="contact-btn">
+                            <a href="#">Customer Service</a>
+                        </div>
+                    </div>
+                </div> -->
+            
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "conatct new",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "text-heading",
+      "default": "We would love to help"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "small-heading",
+      "default": "CONTECT SPADE"
+    },
+    {
+      "type": "textarea",
+      "label": "Paragraph",
+      "id": "text-area",
+      "default": "Let us know how we can help you! Email us, check out our FAQ's, contact us or browse our store locator."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_new",
+      "name": "Contact New",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "contact-image"
+        },
+        {
+          "type": "text",
+          "label": "Button Text",
+          "id": "button_text"
+        },
+        {
+          "type": "url",
+          "label": "Button Url",
+          "id": "button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact New"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

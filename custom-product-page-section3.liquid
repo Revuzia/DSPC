@@ -1,0 +1,183 @@
+<section class="custom-ptoduct-page-sec3">
+    <div class="page-width">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="sec3-left-content">
+                    <div class="sec3-heading">
+                        <h2>{{ section.settings.main_heading }}</h2>
+                        <p>{{ section.settings.sub_heading }}</p>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition1 }}</p>
+                        <span>{{ section.settings.quantity1 }}</span>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition2 }}</p>
+                        <span>{{ section.settings.quantity2 }}</span>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition3 }}</p>
+                        <span>{{ section.settings.quantity3 }}</span>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition4 }}</p>
+                        <span>{{ section.settings.quantity4 }}</span>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition5 }}</p>
+                        <span>{{ section.settings.quantity5 }}</span>
+                    </div>
+                    <div class="ingredients">
+                        <p>{{ section.settings.nutrition6 }}</p>
+                        <span>{{ section.settings.quantity6 }}</span>
+                    </div>
+                    <div class="serving-size">
+                        <p>{{ section.settings.serving-size }}</p>
+                        <span>{{ section.settings.serving-quantity }}</span>
+                    </div>
+                    <div class="sponsor">
+                        <div class="sponsor-logo"><img src="{{ section.settings.sponsor_logo | image_url }}" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 sec3-right-content-col">
+                <div class="sec3-right-content">
+                    <div class="fruit"><h4>{{ section.settings.text1 }}</h4></div>
+                    <div class="taste"><h4>{{ section.settings.text2 }}</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Section Three",
+    "settings": [
+          {
+      "type": "text",
+      "label": "Main Heading",
+      "id": "main_heading",
+      "default": "nutrition facts"
+    },
+    {
+      "type": "text",
+      "label": "Sub Heading",
+      "id": "sub_heading",
+      "default": "CARBONATED WATER, GRAPEFRUIT JUICE, ORANGE JUICE, LEMON JUICE, HIBISCUS (FOR COLOR), 0G ADDED SUGAR"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition1",
+      "default": "Calories"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity1",
+      "default": "17"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition2",
+      "default": "Total Fat"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity2",
+      "default": "0g"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition3",
+      "default": "Saturated Fat"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity3",
+      "default": "0g"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition4",
+      "default": "Carbohydrates"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity4",
+      "default": "4g"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition5",
+      "default": "Sugars"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity5",
+      "default": "3g"
+    },
+    {
+      "type": "text",
+      "label": "Nutrition",
+      "id": "nutrition6",
+      "default": "Proteins"
+    },
+    {
+      "type": "text",
+      "label": "Quantity",
+      "id": "quantity6",
+      "default": "0g"
+    },
+    {
+      "type": "text",
+      "label": "Serving Size",
+      "id": "serving-size",
+      "default": "Serving Size"
+    },
+    {
+      "type": "text",
+      "label": "Serving Quantity",
+      "id": "serving-quantity",
+      "default": "12 fl (355ml)"
+    },
+    {
+      "type": "text",
+      "label": "Text",
+      "id": "text1",
+      "default": "Real Fruit"
+    },
+    {
+      "type": "text",
+      "label": "Text",
+      "id": "text2",
+      "default": "Tastes Better"
+    },
+    {
+      "type": "image_picker",
+      "label": "Sponsor Logo",
+      "id": "sponsor_logo"
+    }
+    ],
+            "presets": [
+    {
+      "name": "Section Three"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
